@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Let's Play Some Hangman, Y'all!</h1>
+          <p class="lead">Press any letter to begin guessing</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Your word to solve
+        </div>
+        <div class="card-body" id="currentWord"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Guesses Attempted
+        </div>
+        <div class="card-body" id="wrongLetters"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Remaining Guesses
+        </div>
+        <div class="card-body" id="guessLeft"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Wins
+        </div>
+        <div class="card-body" id="winCount"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Losses
+        </div>
+        <div class="card-body" id="lossCount"></div>
+    </div>
+</div>
+    <!-- javascript -->
+    <script type="text/javascript">
+    //Global Variables
+
+    var wordBank = [
+        "texas", 
+        "howdy", 
+        "austin", 
+        "boots", 
+        "whataburger",
+        "galveston",
+        "rodeo", 
+        "bluebonnet",
+        "barbeque", 
+        ];
+
+    var winCount = 0;
+    var losses = 0;
+    var wrongLetter = [];
+    var guessLeft = 5;
+    var underScores = [];
+    var userGuess = [];
+    var randWord = [];
+
+    function startGame(){
+        //choose a random word from the wordBank to guess
+        randWord =  wordBank[Math.floor(Math.random() * wordBank.length)];
+        // console.log("current word: " + randWord);
+
+        for(var i = 0; i < randWord.length; i++) {
+            underScores.push("_");
+        }
+        //Prints underscores to screen
+        document.getElementById("currentWord").textContent = underScores.join(" ");     
+    }
+
+    //When to end the game
+    function winOrLose() {
+        if (winCount === randWord.length) {
+            alert("Winner winner!")
+            console.log("# of wins " + winCount);
+            
+        }
+        else if (guessLeft === 0) {
+            alert("Ahh... You lost. Try Again!")
+        }
+
+    }
+
+    //track user guesses
+    document.onkeyup = function(event) {
+        userGuess = event.key;
+
+    // looking for correct guess of letters
+    if(randWord.indexOf(userGuess) > -1) {
+        
+        for(var i = 0; i < randWord.length; i++) {
+            if(randWord[i] === userGuess) {
+                underScores[i] = userGuess;
+                console.log(underScores);
+
+                winCount++;
+                //print to screen
+                winOrLose();
+            }
+        //print to screen
+        document.getElementById("currentWord").textContent = underScores.join(" ");
+        }
+    }
+
+    else {
+    wrongLetter.push(userGuess);
+    console.log("Wrong Guess: " + wrongLetter);
+    document.getElementById("wrongLetters").textContent = wrongLetter.join(" ");  
+    guessLeft--;
+    console.log("Remaining Guesses " + guessLeft);
+    //HTML
+    document.getElementById("guessLeft").textContent = guessLeft;
+    winOrLose();
+    }
+    }
+
+    //Play game
+    startGame();
+    
+    </script>
+
+</body>
+
+</html>
