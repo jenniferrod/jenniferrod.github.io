@@ -1,0 +1,50 @@
+/* crystal collector - style.css */
+body {
+    background-image: url("../images/beach.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #765b78;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-family: "Cinzel Decorative", cursive;
+    justify-content: space-around;
+    padding: 25px;
+
+}
+
+p, li {
+    text-align: center;
+}
+
+.rules {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: space-around;
+}
+
+.stats {
+    align-content: flex-end;
+    margin-top: 25px;
+}
+
+.results {
+    margin-top: 25px;
+}
+
+.shells {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.shell {
+    height: 115px;
+    width: 115px;
+    padding: 10px;
+}
+

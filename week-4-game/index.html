@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seashell Collector</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+    <h1 class="row">Seashell Collector Game</h1>
+    <div class="row rules">
+        <ul id="rules">
+            <li>Match your score to the target number by collecting the seashells below.</li>
+            <li>The value of each shell will change after every round.</li>
+            <li>Be careful not to go over the target number or you'll lose!</li>
+        </ul>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 stats">
+            <p id="matchThis"></p>
+            <p id="total"></p>
+        </div>
+        <div class="col-3 results">
+            <p id="message"></p>
+            <p id="win"></p>
+            <p id="loss"></p>
+        </div>
+    </div>
+    <br>
+    <div class="row shells">
+    </div>
+         
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  
+</script>
+<script src="assets/javascript/game.js"></script>
+  
+</body>
+
+</html>
